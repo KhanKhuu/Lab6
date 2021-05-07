@@ -68,11 +68,15 @@ class JournalEntry extends HTMLElement {
    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
    */
   set entry(entry) {
+
+    console.log()
     /* 
      * TODO: set the entry title, date, and content fields in this component
      */
-    
-    // CODE GOES HERE
+    this.setAttribute('entry-title', entry.title);
+    this.setAttribute('entry-date', entry.date);
+    this.setAttribute('entry-content', entry.content);
+    document.body.appendChild(this);
 
     if (entry.image) {
       let entryImage;
@@ -84,10 +88,10 @@ class JournalEntry extends HTMLElement {
        */
 
       // CODE GOES HERE vvv
-
-
-
-
+      entryImage = document.createElement('entry-image');
+      entryImage.src = entry.image.src;
+      entryImage.alt = entry.image.alt;
+      this.setAttribute('entry-image', entryImage);
 
       // CODE GOES HERE ^^^
 
@@ -111,14 +115,11 @@ class JournalEntry extends HTMLElement {
 
       // CODE GOES HERE vvv
 
-
-
-
-
+      entryAudio = document.createElement('entry-audio');
+      entryAudio.src  = entry.audio;
+      this.setAttribute('entry-audio', entryAudio);
 
       // CODE GOES HERE ^^^
-      
-
       
       /* ------------- do not edit this code, it is for your debugging purposes ------------- */
       try {
@@ -129,7 +130,9 @@ class JournalEntry extends HTMLElement {
       /* ------------- do not edit this code, it is for your debugging purposes ------------- */
 
     }
+
     this.setAttribute('entry', entry);
+    document.body.appendChild(this);
 
     /* ------------- do not edit this code, it is for your debugging purposes ------------- */
     try {

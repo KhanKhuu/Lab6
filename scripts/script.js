@@ -7,7 +7,7 @@ window.logCheckpoints = true // set to true/false to add/remove checkpoint logs 
 
 document.addEventListener('DOMContentLoaded', () => {
   /* TODO:
-   * 1. fetch json results from https://cse110lab6.herokuapp.com/entries
+   * 1. fetch json results from https://cse110lab6.herokuapp.com/entries ✓✓✓✓✓✓
    * 2. for each entry, create and append a custom HTML element 
    *    using a web component called JournalEntry to a 
    *    list of journal entries in inside <main></main>. 
@@ -16,25 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
    * the current entry for each journal-entry element.
    */
 
-  let url = ""  // SET URL 
+  let url = "https://cse110lab6.herokuapp.com/entries"  // SET URL 
 
   fetch(url)
-    .then( /* FILL IN RESPONSE HANDLING HERE */ )
+    .then( /* FILL IN RESPONSE HANDLING HERE */ entries => entries.json())
     .then(entries => {
       entries.forEach((entry) => {
-       
+        console.log(entry);
         let newPost;  
 
 
         // CODE GOES HERE vvv
-        
-
-
-
-
-
-
-
+        newPost = document.createElement('journal-entry');
+        newPost.entry = entry;
         // CODE GOES HERE ^^^
 
 
